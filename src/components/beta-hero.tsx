@@ -52,11 +52,19 @@ function lerp(t: number, a: number, b: number) {
   return a + t * (b - a);
 }
 
-function grad(hash: number, x: number, y: number, z: number) {
+function grad(
+  X: number,
+  Y: number,
+  Z: number,
+  x: number,
+  y: number,
+  z: number,
+) {
+  // Combine the integer lattice coords into a pseudo-random hash
+  const hash = (X + Y * 57 + Z * 131) & 255;
   const h = hash & 15;
   const u = h < 8 ? x : y;
   const v = h < 4 ? y : h === 12 || h === 14 ? x : z;
-
   return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
 }
 
@@ -97,7 +105,7 @@ function SophisticatedParticleWave() {
     }
 
     return { positions, sizes, colors, initialPositions };
-  }, [particleCount]);
+  }, []);
 
   useFrame((state) => {
     if (!particlesRef.current) return;
@@ -135,24 +143,9 @@ function SophisticatedParticleWave() {
   return (
     <points ref={particlesRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-size"
-          count={particleCount}
-          array={sizes}
-          itemSize={1}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particleCount}
-          array={colors}
-          itemSize={3}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
         size={0.12}
@@ -185,7 +178,7 @@ function AmbientParticles() {
     }
 
     return { positions, sizes };
-  }, [particleCount]);
+  }, []);
 
   useFrame((state) => {
     if (!particlesRef.current) return;
@@ -198,18 +191,8 @@ function AmbientParticles() {
   return (
     <points ref={particlesRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-size"
-          count={particleCount}
-          array={sizes}
-          itemSize={1}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
       </bufferGeometry>
       <pointsMaterial
         size={0.08}
