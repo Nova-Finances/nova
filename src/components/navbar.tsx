@@ -24,7 +24,7 @@ export function Navbar() {
                   />
                 </svg>
               </div>
-              <span className="text-xl font-bold">Finances</span>
+              <span className="text-xl font-bold">Nova</span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">

@@ -15,29 +15,29 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Finances – Private Beta",
-    template: "%s – Finances",
+    default: "Nova – Private Beta",
+    template: "%s – Nova",
   },
   description: "Next‑gen personal finance management. Private beta.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Finances – Private Beta",
+    title: "Nova – Private Beta",
     description: "Next‑gen personal finance management. Private beta.",
     url: "/",
-    siteName: "Finances",
+    siteName: "Nova",
     images: [
       {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Finances Logo",
+        alt: "Nova Logo",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Finances – Private Beta",
+    title: "Nova – Private Beta",
     description: "Next‑gen personal finance management. Private beta.",
     images: ["/logo.png"],
   },
