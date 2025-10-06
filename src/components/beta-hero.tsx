@@ -3,9 +3,11 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Lock, Shield, Sparkles, Zap } from "lucide-react";
 import { Suspense, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import * as THREE from "three";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Spinner } from "./ui/spinner";
 
 function noise(x: number, y: number, z: number) {
   const X = Math.floor(x) & 255;
@@ -234,7 +236,6 @@ function Scene() {
 export function BetaHero() {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   function isValidEmail(value: string) {
@@ -243,7 +244,6 @@ export function BetaHero() {
 
   async function handleJoin(e: React.FormEvent) {
     e.preventDefault();
-    setMessage(null);
     setError(null);
     const next = email.trim();
     if (!isValidEmail(next)) {
@@ -261,7 +261,7 @@ export function BetaHero() {
       if (!res.ok || !data?.success) {
         throw new Error(data?.error || "Failed to subscribe");
       }
-      setMessage(data?.message || "You're on the list!");
+      toast.success("You've been added to the waitlist!");
       setEmail("");
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong");
@@ -360,10 +360,9 @@ export function BetaHero() {
                   className="h-12 px-8 bg-primary hover:bg-primary/90"
                   disabled={submitting}
                 >
-                  {submitting ? "Joining..." : "Join Waitlist"}
+                  {submitting ? <Spinner /> : "Join Waitlist"}
                 </Button>
               </form>
-              {message && <p className="text-xs text-emerald-400">{message}</p>}
               {error && <p className="text-xs text-red-400">{error}</p>}
               <p className="text-xs text-gray-500">
                 Limited spots available. First come, first served.
