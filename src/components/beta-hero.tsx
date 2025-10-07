@@ -271,7 +271,7 @@ export function BetaHero() {
   }
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden bg-black">
+    <div className="relative min-h-screen w-full bg-black">
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 15], fov: 75 }}>
           <Suspense fallback={null}>
@@ -282,8 +282,8 @@ export function BetaHero() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90 z-10" />
 
-      <div className="relative z-20 flex h-full items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-6 max-h-full overflow-hidden">
+      <div className="relative z-20 flex min-h-screen items-center justify-center px-4 py-8 sm:py-12">
+        <div className="max-w-4xl mx-auto text-center space-y-6 w-full">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm animate-fade-in">
             <Lock className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">
