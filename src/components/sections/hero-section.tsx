@@ -3,6 +3,7 @@
 import { ArrowRight01Icon, Login02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -44,14 +45,19 @@ export function HeroSection() {
                 />
               </Button>
               <div className="btn-gradient-outline rounded-none w-full sm:w-auto">
-                <Button className="hover:cursor-pointer btn-gradient-outline-inner gap-2 rounded-none font-['Unbounded'] font-normal text-sm sm:text-base bg-transparent border-0 hover:bg-transparent w-full px-6 sm:px-8 py-3 sm:py-4 h-auto">
-                  <HugeiconsIcon
-                    icon={Login02Icon}
-                    size={20}
-                    className="gradient-icon"
-                    strokeWidth={1.5}
-                  />
-                  <span className="text-gradient-brand">Sign In</span>
+                <Button
+                  asChild
+                  className="hover:cursor-pointer btn-gradient-outline-inner gap-2 rounded-none font-['Unbounded'] font-normal text-sm sm:text-base bg-transparent border-0 hover:bg-transparent w-full px-6 sm:px-8 py-3 sm:py-4 h-auto"
+                >
+                  <Link href="/sign-in">
+                    <HugeiconsIcon
+                      icon={Login02Icon}
+                      size={20}
+                      className="gradient-icon"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-gradient-brand">Sign In</span>
+                  </Link>
                 </Button>
               </div>
             </div>

@@ -1,11 +1,11 @@
 import { BackgroundGradient } from "@/components/background-gradient";
-import { FeaturesSection } from "@/components/features-section";
 import { Footer } from "@/components/footer";
 import { GradientDefinitions } from "@/components/gradient-definitions";
-import { HeroSection } from "@/components/hero-section";
-import { HowItWorksSection } from "@/components/how-it-works-section";
 import { Navigation } from "@/components/navigation";
-import { PricingSection } from "@/components/pricing-section";
+import { FeaturesSection } from "@/components/sections/features-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { HowItWorksSection } from "@/components/sections/how-it-works-section";
+import { PricingSection } from "@/components/sections/pricing-section";
 import { WaitlistCTA } from "@/components/waitlist-cta";
 import { WaveDivider } from "./wave";
 

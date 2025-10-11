@@ -9,7 +9,7 @@ import {
   Upload,
   Wallet,
 } from "lucide-react";
-import { Bento } from "./bento";
+import { Bento } from "../bento";
 
 export function FeaturesSection() {
   return (

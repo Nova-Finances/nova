@@ -113,7 +113,9 @@ export function Footer() {
               height={40}
               className="w-12 h-12 shrink-0"
             />
-            <span className="text-2xl font-bold text-gradient-brand">NOVA</span>
+            <span className="text-2xl font-bold text-gradient-brand font-['Unbounded']">
+              NOVA
+            </span>
           </div>
           <p className="text-sm text-white/40">
             © 2025 NOVA. All rights reserved.

@@ -5,9 +5,9 @@ import { Lock, Shield, Sparkles, Zap } from "lucide-react";
 import { Suspense, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import * as THREE from "three";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Spinner } from "./ui/spinner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/spinner";
 
 function noise(x: number, y: number, z: number) {
   const X = Math.floor(x) & 255;

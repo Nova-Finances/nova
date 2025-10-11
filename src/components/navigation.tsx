@@ -3,9 +3,36 @@
 import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export function Navigation() {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "features", "pricing"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#0f1115]/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,28 +51,55 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm lg:text-base">
-            <a
-              href="#home"
-              className="text-white hover:text-primary transition-colors font-['Unbounded'] font-light"
+            <button
+              type="button"
+              onClick={() => {
+                document
+                  .getElementById("home")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={`transition-colors font-['Unbounded'] font-light cursor-pointer ${
+                activeSection === "home"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white"
+              }`}
             >
               Home
-            </a>
-            <a
-              href="#features"
-              className="text-white/40 hover:text-white transition-colors font-['Unbounded'] font-light"
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                document
+                  .getElementById("features")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={`transition-colors font-['Unbounded'] font-light cursor-pointer ${
+                activeSection === "features"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white"
+              }`}
             >
               Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-white/40 hover:text-white transition-colors font-['Unbounded'] font-light"
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                document
+                  .getElementById("pricing")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={`transition-colors font-['Unbounded'] font-light cursor-pointer ${
+                activeSection === "pricing"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white"
+              }`}
             >
               Pricing
-            </a>
+            </button>
           </div>
 
           <Button
-            className="bg-gradient-brand font-['Unbounded'] font-normal text-black hover:bg-primary/90 shadow-lg gap-2 rounded-none group"
+            className="bg-gradient-brand cursor-pointer font-['Unbounded'] font-normal text-black hover:bg-primary/90 shadow-lg gap-2 rounded-none group"
             onClick={() =>
               document
                 .getElementById("waitlist")

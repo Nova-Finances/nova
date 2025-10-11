@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
 import { ArrowRight } from "lucide-react";
-import { BetaBadge } from "./beta-badge";
+import { BetaBadge } from "@/components/beta/beta-badge";
 import { Button } from "./ui/button";
 
 export function CTA() {
