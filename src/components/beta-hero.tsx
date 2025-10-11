@@ -305,7 +305,7 @@ export function BetaHero() {
             Currently in private beta with selected early adopters.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-4 animate-fade-in-up">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto -mt-15 animate-fade-in-up">
             <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-primary" />
@@ -337,7 +337,7 @@ export function BetaHero() {
             </div>
           </div>
 
-          <div className="mt-4 animate-fade-in-up">
+          <div className="mt-2 animate-fade-in-up">
             <div className="max-w-md mx-auto space-y-4">
               <p className="text-sm text-gray-400">
                 Want early access? Join the waitlist and we'll notify you when
