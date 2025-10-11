@@ -39,7 +39,7 @@ export function WaveDivider({
   width = "100%",
 }: WaveDividerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;
